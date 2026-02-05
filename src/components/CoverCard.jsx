@@ -7,7 +7,7 @@ export default function CoverCard({ image,name,onClick }) {
       tabIndex={onClick ? 0 : undefined}
       onClick={onClick}
       onKeyDown={onClick ? (e) => e.key === "Enter" && onClick() : undefined}
-      className="relative overflow-hidden cursor-pointer group w-full break-inside-avoid"
+      className="relative overflow-hidden cursor-pointer group w-full break-inside-avoid self-start"
     >
       <img
         src={image}

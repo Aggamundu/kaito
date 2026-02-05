@@ -3,13 +3,13 @@ import { useNavigate,useParams } from "react-router-dom";
 import ChevronLeftIcon from "../assets/icons/chevron-left.svg";
 import ChevronRightIcon from "../assets/icons/chevron-right.svg";
 import CoverCard from "../components/CoverCard";
-import { covers } from "../data/covers";
+import { bvlgari } from "../data/bvlgari";
 
-export default function CoversViewer() {
+export default function BvlgariViewer() {
   const { index } = useParams();
   const navigate = useNavigate();
-  const i = Math.max(0,Math.min(Number(index) || 0,covers.length - 1));
-  const item = covers[i];
+  const i = Math.max(0,Math.min(Number(index) || 0,bvlgari.length - 1));
+  const item = bvlgari[i];
   const [modalOpen,setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -27,12 +27,12 @@ export default function CoversViewer() {
   },[modalOpen]);
 
   const goPrev = () => {
-    const prev = i === 0 ? covers.length - 1 : i - 1;
-    navigate(`/covers/${prev}`);
+    const prev = i === 0 ? bvlgari.length - 1 : i - 1;
+    navigate(`/bvlgari/${prev}`);
   };
   const goNext = () => {
-    const next = i === covers.length - 1 ? 0 : i + 1;
-    navigate(`/covers/${next}`);
+    const next = i === bvlgari.length - 1 ? 0 : i + 1;
+    navigate(`/bvlgari/${next}`);
   };
 
   return (
@@ -43,7 +43,7 @@ export default function CoversViewer() {
           <span className="text-lightgray text-center">{item.year}</span>
         )}
       </div>
-      <div className="w-[40%]">
+      <div className="w-[70%]">
         <div className="w-full flex flex-col items-center pb-4">
           <div className="flex-1 flex flex-col items-center">
             <button
@@ -92,7 +92,7 @@ export default function CoversViewer() {
           <button
             type="button"
             onClick={() => setModalOpen(false)}
-            className="hover:cursor-pointer absolute w-10 h-10 top-4 right-4 z-10 rounded-full p-2 text-white/80 hover:bg-white/20 hover:text-white transition"
+            className="absolute top-4 right-4 z-10 rounded-full p-2 text-white/80 hover:bg-white/20 hover:text-white transition"
             aria-label="Close"
           >
             <span className="text-2xl leading-none">&times;</span>
@@ -111,14 +111,14 @@ export default function CoversViewer() {
       )}
 
       <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
-        {covers.map((cover,index) => (
+        {bvlgari.map((cover,index) => (
           <CoverCard
             key={cover.name || cover.image}
             image={cover.image}
             name={cover.name}
             onClick={() => {
               window.scrollTo({ top: 0,left: 0,behavior: "smooth" });
-              navigate(`/covers/${index}`);
+              navigate(`/bvlgari/${index}`);
             }}
           />
         ))}

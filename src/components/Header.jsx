@@ -10,7 +10,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-10 flex flex-col items-center justify-center py-4 bg-white border-b border-lightgray">
+    <header className="fixed top-0 left-0 right-0 z-10 flex flex-col items-center justify-center py-4 bg-white">
       <NavLink to="/" className="text-lg">
         JESSIE XU
       </NavLink>
