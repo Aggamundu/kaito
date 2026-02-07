@@ -12,7 +12,7 @@ export default function icons() {
         onClick={() => window.open("https://www.instagram.com/kaito_xux/","_blank")}
         type="button"
       >
-        <img src={Instagram} alt="Instagram" className="w-10 h-10 sm:w-5 sm:h-5" />
+        <img src={Instagram} alt="Instagram" className="w-[20px] h-[20px]" />
         <span className="text-[12px] transition-colors duration-300  ">Instagram</span>
       </button>
       {/* <button
@@ -30,7 +30,7 @@ export default function icons() {
         onClick={() => window.open("https://www.instagram.com/kaito_xux/","_blank")}
         type="button"
       >
-        <img src={Email} alt="Email" className="w-10 h-10 sm:w-5 sm:h-5" />
+        <img src={Email} alt="Email" className="w-[20px] h-[20px]" />
         <span className="text-[12px] transition-colors duration-300  ">Email</span>
       </button>
       <button
@@ -39,7 +39,7 @@ export default function icons() {
         onClick={() => window.open("https://www.instagram.com/kaito_xux/","_blank")}
         type="button"
       >
-        <img src={Twitter} alt="Twitter" className="w-10 h-10 sm:w-5 sm:h-5" />
+        <img src={Twitter} alt="Twitter" className="w-[20px] h-[20px]" />
         <span className="text-[12px] transition-colors duration-300  ">Twitter</span>
       </button>
       <button
@@ -48,7 +48,7 @@ export default function icons() {
         onClick={() => window.open("https://www.instagram.com/kaito_xux/","_blank")}
         type="button"
       >
-        <img src={TikTok} alt="TikTok" className="w-10 h-10 sm:w-5 sm:h-5" />
+        <img src={TikTok} alt="TikTok" className="w-[20px] h-[20px]" />
         <span className="text-[12px] transition-colors duration-300  ">TikTok</span>
       </button>
     </div>

@@ -22,7 +22,7 @@ export default function Footer() {
             className="text-lightgray hover:text-darkgray transition-colors duration-300"
             aria-label={label}
           >
-            <img src={icon} alt="" className="w-8 h-8 sm:w-6 sm:h-6 opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
+            <img src={icon} alt="" className="w-6 h-6 opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" />
 
           </a>
         ))}
