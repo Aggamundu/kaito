@@ -1,5 +1,5 @@
 import { AnimatePresence,motion } from "framer-motion";
-import { useEffect,useState } from "react";
+import { useEffect,useRef,useState } from "react";
 import { Route,Routes,useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
@@ -22,6 +22,18 @@ const MAX_LOAD_TIME_MS = 8000;
 function App() {
   const location = useLocation();
   const [isReady,setIsReady] = useState(false);
+  const prevPathname = useRef(location.pathname);
+  const [exitingFromContact,setExitingFromContact] = useState(false);
+
+  useEffect(() => {
+    if (prevPathname.current === "/contact" && location.pathname !== "/contact") {
+      setExitingFromContact(true);
+    }
+    prevPathname.current = location.pathname;
+  },[location.pathname]);
+
+  const showFooter =
+    location.pathname !== "/contact" && !exitingFromContact;
 
   useEffect(() => {
     const allImages = [
@@ -72,7 +84,7 @@ function App() {
     >
       <Header />
       <div className="pt-18 sm:pt-22">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" onExitComplete={() => setExitingFromContact(false)}>
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0 }}
@@ -95,7 +107,7 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </div>
-      {location.pathname !== "/contact" && <Footer />}
+      {showFooter && <Footer />}
     </motion.div>
   );
 }
