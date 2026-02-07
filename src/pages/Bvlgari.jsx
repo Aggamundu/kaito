@@ -1,13 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import IllustrationCard from "../components/IllustrationCard";
 import { bvlgari } from "../data/bvlgari";
+import myGif from "../assets/bvlgari/output.gif";
 
 export default function Bvlgari() {
   const navigate = useNavigate();
 
   return (
-    <div className="">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center pt-4 pb-4">
+        <span className="text-[40px] max-w-[800px] text-center">The Mystique of a Kiss</span>
+        <span className="text-lightgray text-center">First Place Winner of Bulgari: The Art of Living with Allegra Baciami Passioné Contest</span>
+      </div>
+      <img src = {myGif} alt="My GIF" className="w-[40%] min-w-[350px] h-auto pb-4" />
+      <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
         {bvlgari.map((item,index) => (
           <IllustrationCard
             key={item.name || item.image}

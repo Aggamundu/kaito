@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import { useNavigate,useParams } from "react-router-dom";
 import ChevronLeftIcon from "../assets/icons/chevron-left.svg";
 import ChevronRightIcon from "../assets/icons/chevron-right.svg";
-import CoverCard from "../components/CoverCard";
+import IllustrationCard from "../components/IllustrationCard";
 import { bvlgari } from "../data/bvlgari";
 
 export default function BvlgariViewer() {
@@ -55,14 +55,32 @@ export default function BvlgariViewer() {
               <img
                 src={item.image}
                 alt={item.name}
-                className="max-w-full w-auto h-auto object-contain"
+                className="max-w-full w-auto h-auto object-contain min-w-[350px]"
               />
             </button>
+            <div className="flex sm:hidden px-6 py-3 items-center gap-2">
+              <button
+                type="button"
+                onClick={goPrev}
+                className="p-1 hover:cursor-pointer rounded-full bg-white/20 hover:opacity-50 transition"
+                aria-label="Previous"
+              >
+                <img src={ChevronLeftIcon} alt="" className="w-6 h-6" />
+              </button>
+              <button
+                type="button"
+                onClick={goNext}
+                className="p-1 hover:cursor-pointer rounded-full bg-white/20 hover:opacity-50 transition"
+                aria-label="Next"
+              >
+                <img src={ChevronRightIcon} alt="Next" className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      {/* Vertical center aligned with title block */}
-      <div className="fixed right-0 top-[8.25rem] -translate-y-1/2 px-6 py-3 flex items-center gap-2">
+      {/* Vertical center aligned with title block - desktop only */}
+      <div className="hidden sm:flex fixed right-0 top-[8.25rem] -translate-y-1/2 px-6 py-3 items-center gap-2">
         <button
           type="button"
           onClick={goPrev}
@@ -111,11 +129,12 @@ export default function BvlgariViewer() {
       )}
 
       <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
-        {bvlgari.map((cover,index) => (
-          <CoverCard
-            key={cover.name || cover.image}
-            image={cover.image}
-            name={cover.name}
+        {bvlgari.map((item,index) => (
+          <IllustrationCard
+            key={item.name || item.image}
+            image={item.image}
+            name={item.name}
+            year={item.year}
             onClick={() => {
               window.scrollTo({ top: 0,left: 0,behavior: "smooth" });
               navigate(`/bvlgari/${index}`);
