@@ -55,7 +55,7 @@ export default function IllustrationViewer() {
               <img
                 src={item.image}
                 alt={item.name}
-                className="max-w-full w-auto h-auto object-contain min-w-[350px]"
+                className="max-w-full w-auto h-auto object-contain min-w-[320px]"
               />
             </button>
             <div className="flex sm:hidden  px-6 py-3 items-center gap-2">
@@ -76,7 +76,7 @@ export default function IllustrationViewer() {
                 <img src={ChevronRightIcon} alt="Next" className="w-6 h-6" />
               </button>
             </div>
-            
+
           </div>
         </div>
       </div>

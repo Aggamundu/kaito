@@ -2,6 +2,7 @@ import { AnimatePresence,motion } from "framer-motion";
 import { useEffect,useState } from "react";
 import { Route,Routes,useLocation } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { bvlgari } from "./data/bvlgari";
 import { covers } from "./data/covers";
@@ -94,6 +95,7 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </div>
+      {location.pathname !== "/contact" && <Footer />}
     </motion.div>
   );
 }

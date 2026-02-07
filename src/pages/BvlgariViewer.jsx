@@ -55,7 +55,7 @@ export default function BvlgariViewer() {
               <img
                 src={item.image}
                 alt={item.name}
-                className="max-w-full w-auto h-auto object-contain min-w-[350px]"
+                className="max-w-full w-auto h-auto object-contain min-w-[320px]"
               />
             </button>
             <div className="flex sm:hidden px-6 py-3 items-center gap-2">
