@@ -7,7 +7,7 @@ export default function Covers() {
 
   return (
     <div className="bg-gray-100">
-      <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-0">
         {covers.map((item,index) => (
           <CoverCard
             key={item.name || item.image}
