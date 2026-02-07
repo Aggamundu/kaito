@@ -70,7 +70,7 @@ function App() {
       className="w-full min-h-screen"
     >
       <Header />
-      <div className="pt-22">
+      <div className="pt-18 sm:pt-22">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

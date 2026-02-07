@@ -7,7 +7,7 @@ export default function Illustration() {
 
   return (
     <div className="">
-      <div className="w-full h-[300px] bg-red-500">Banner here</div>
+      <div className="w-full h-[300px] bg-red-500 ">Banner here</div>
       <div className="columns-2 sm:columns-3 lg:columns-4 gap-0 [&>*]:mb-0">
         {illustrations.map((item,index) => (
           <IllustrationCard

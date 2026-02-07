@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,useLocation } from "react-router-dom";
 
 const navLinks = [
   { to: "/illustration",label: "Illustration" },
@@ -11,10 +11,18 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen,setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const linkClass = ({ isActive }) =>
-    `hover:text-darkgray duration-300 transition-all text-base block py-2 ${isActive ? "text-darkgray" : "text-lightgray"
-    }`;
+  const isIllustrationActive = () =>
+    location.pathname === "/" ||
+    location.pathname === "/illustration" ||
+    location.pathname.startsWith("/illustration/");
+
+  const mobileLinkClass = (to,{ isActive }) => {
+    const active = to === "/illustration" ? isIllustrationActive() : isActive;
+    return `hover:text-darkgray duration-300 transition-all text-base block py-2 ${active ? "text-darkgray opacity-100" : "text-lightgray opacity-80"
+      }`;
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-10 border-b border-lightgray bg-white">
@@ -28,9 +36,13 @@ export default function Header() {
           <ul className="flex space-x-[15px]">
             {navLinks.map(({ to,label }) => (
               <li key={to}>
-                <NavLink to={to} className={({ isActive }) =>
-                  `hover:text-darkgray duration-300 transition-all text-base ${isActive ? "text-darkgray" : "text-lightgray"}`
-                }>
+                <NavLink
+                  to={to}
+                  className={({ isActive }) => {
+                    const active = to === "/illustration" ? isIllustrationActive() : isActive;
+                    return `hover:text-darkgray duration-300 transition-all text-base ${active ? "text-darkgray" : "text-lightgray"}`;
+                  }}
+                >
                   {label}
                 </NavLink>
               </li>
@@ -72,7 +84,7 @@ export default function Header() {
               <li key={to}>
                 <NavLink
                   to={to}
-                  className={linkClass}
+                  className={({ isActive }) => mobileLinkClass(to,{ isActive })}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {label}
