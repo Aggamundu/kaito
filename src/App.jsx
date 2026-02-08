@@ -102,7 +102,7 @@ function App() {
       <Header />
       <div
         ref={mainContentRef}
-        className="pt-18 sm:pt-22 min-h-[120vh]"
+        className="pt-18 sm:pt-22 min-h-[1.5vh]"
         tabIndex={-1}
         style={{ outline: "none" }}
       >
