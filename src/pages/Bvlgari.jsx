@@ -13,7 +13,7 @@ export default function Bvlgari() {
         <span className="text-lightgray text-center">First Place Winner of Bulgari: The Art of Living with Allegra Baciami Passioné Contest</span>
       </div>
       <img src={myGif} alt="My GIF" className="w-[40%] min-w-[320px] h-auto pb-4" />
-      <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
+      <div className="columns-1 sm:columns-3 gap-0 [&>*]:mb-0">
         {bvlgari.map((item,index) => (
           <IllustrationCard
             key={item.name || item.image}
