@@ -1,7 +1,7 @@
-import Email from "../assets/icons/email.svg";
-import Instagram from "../assets/icons/instagram.svg";
-import TikTok from "../assets/icons/tiktok.svg";
-import Twitter from "../assets/icons/twitter.svg";
+import Email from "../assets/icons/email.png";
+import Instagram from "../assets/icons/instagram.png";
+import TikTok from "../assets/icons/tik-tok.png";
+import Twitter from "../assets/icons/twitter.png";
 
 export default function icons() {
   return (

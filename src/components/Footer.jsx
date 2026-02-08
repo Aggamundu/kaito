@@ -1,6 +1,6 @@
-import Instagram from "../assets/icons/instagram.svg";
-import TikTok from "../assets/icons/tiktok.svg";
-import Twitter from "../assets/icons/twitter.svg";
+import Instagram from "../assets/icons/instagram.png";
+import TikTok from "../assets/icons/tik-tok.png";
+import Twitter from "../assets/icons/twitter.png";
 
 // Replace # with your profile URLs
 const socialLinks = [
