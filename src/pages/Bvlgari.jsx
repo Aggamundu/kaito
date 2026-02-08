@@ -7,7 +7,7 @@ export default function Bvlgari() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-[150vh]">
+    <div className="flex flex-col justify-start items-center min-h-[150vh]">
       <div className="flex flex-col items-center pt-4 pb-4">
         <span className="text-[40px] max-w-[800px] text-center">The Mystique of a Kiss</span>
         <span className="text-lightgray text-center">First Place Winner of Bulgari: The Art of Living with Allegra Baciami Passioné Contest</span>

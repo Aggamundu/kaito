@@ -36,7 +36,7 @@ export default function BvlgariViewer() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[150vh]">
+    <div className="flex flex-col items-center justify-start min-h-[150vh]">
       <div className="flex flex-col items-center pt-4 pb-4">
         <span className="text-[40px] max-w-[800px] text-center">{item.name}</span>
         {item.year && (
