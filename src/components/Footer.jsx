@@ -11,7 +11,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white py-4 mt-auto">
+    <footer className="bg-white py-4 mt-auto [overflow-anchor:none]" style={{ overflowAnchor: 'none' }}>
       <div className="flex justify-center items-center gap-8">
         {socialLinks.map(({ href,icon,label }) => (
           <a
