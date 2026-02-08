@@ -128,7 +128,7 @@ export default function BvlgariViewer() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
+      <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
         {bvlgari.map((item,index) => (
           <IllustrationCard
             key={item.name || item.image}
