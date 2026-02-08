@@ -6,7 +6,7 @@ export default function Covers() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 min-h-[150vh]">
       <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
         {covers.map((item,index) => (
           <CoverCard
