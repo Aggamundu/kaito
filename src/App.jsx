@@ -16,7 +16,6 @@ import CoversViewer from "./pages/CoversViewer";
 import Illustration from "./pages/Illustration";
 import IllustrationViewer from "./pages/IllustrationViewer";
 
-const MIN_LOAD_TIME_MS = 400;
 const MAX_LOAD_TIME_MS = 8000;
 
 function App() {
@@ -53,13 +52,10 @@ function App() {
         })
     );
 
-    const minDelay = new Promise((r) => setTimeout(r,MIN_LOAD_TIME_MS));
     const maxDelay = new Promise((r) => setTimeout(r,MAX_LOAD_TIME_MS));
 
-    Promise.race([
-      Promise.all([Promise.all(preloadPromises),minDelay]),
-      maxDelay,
-    ]).then(() => setIsReady(true));
+    // Show content only when all images have preloaded (or 8s max), so images don't load in visibly
+    Promise.race([Promise.all(preloadPromises),maxDelay]).then(() => setIsReady(true));
   },[]);
 
   // After full load (including images), put focus on main content with preventScroll: true
@@ -96,7 +92,7 @@ function App() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.25 }}
+      transition={{ duration: 0.5 }}
       className="w-full min-h-screen"
     >
       <Header />
