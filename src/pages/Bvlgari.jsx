@@ -12,7 +12,13 @@ export default function Bvlgari() {
         <span className="text-[40px] max-w-[800px] text-center">The Mystique of a Kiss</span>
         <span className="text-lightgray text-center">First Place Winner of Bulgari: The Art of Living with Allegra Baciami Passioné Contest</span>
       </div>
-      <img src={myGif} alt="My GIF" className="w-[40%] min-w-[320px] h-auto pb-4" />
+      <img
+        src={myGif}
+        alt="My GIF"
+        className="w-[40%] min-w-[320px] h-auto pb-4"
+        loading="eager"
+        decoding="async"
+      />
       <div className="columns-2 sm:columns-3 gap-0 [&>*]:mb-0">
         {bvlgari.map((item,index) => (
           <IllustrationCard
