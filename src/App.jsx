@@ -24,6 +24,7 @@ function App() {
   const [isReady,setIsReady] = useState(false);
   const prevPathname = useRef(location.pathname);
   const [exitingFromContact,setExitingFromContact] = useState(false);
+  const mainContentRef = useRef(null);
 
   useEffect(() => {
     if (prevPathname.current === "/contact" && location.pathname !== "/contact") {
@@ -61,6 +62,22 @@ function App() {
     ]).then(() => setIsReady(true));
   },[]);
 
+  // After full load (including images), put focus on main content with preventScroll: true
+  // so the browser doesn't scroll to a top-of-page element (e.g. header link) when focus runs.
+  // More noticeable on mobile where load is slower and focus may fire after the user has scrolled.
+  useEffect(() => {
+    if (!isReady) return;
+    const onLoad = () => {
+      mainContentRef.current?.focus({ preventScroll: true });
+    };
+    if (document.readyState === "complete") {
+      onLoad();
+    } else {
+      window.addEventListener("load",onLoad);
+      return () => window.removeEventListener("load",onLoad);
+    }
+  },[isReady]);
+
   if (!isReady) {
     return (
       <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black min-h-screen">
@@ -83,7 +100,12 @@ function App() {
       className="w-full min-h-screen"
     >
       <Header />
-      <div className="pt-18 sm:pt-22">
+      <div
+        ref={mainContentRef}
+        className="pt-18 sm:pt-22"
+        tabIndex={-1}
+        style={{ outline: "none" }}
+      >
         <AnimatePresence mode="wait" onExitComplete={() => setExitingFromContact(false)}>
           <motion.div
             key={location.pathname}

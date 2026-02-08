@@ -13,8 +13,6 @@ export default function CoverCard({ image,name,onClick }) {
         src={image}
         alt={name || ""}
         className="w-full h-auto block transition duration-300 ease-in-out group-hover:brightness-50"
-        loading="lazy"
-        decoding="async"
       />
       <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-1/2 text-center w-[90%] flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 
